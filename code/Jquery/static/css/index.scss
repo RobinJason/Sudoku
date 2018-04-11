@@ -1,0 +1,155 @@
+// variable
+$bgcolor: #efefef;
+$color3: #333;
+$percent: 100%;
+
+/* global */
+html,body,
+#cover,#sudoku-game,
+.left-slide,.sudoku-wrap,.right-slide,
+.sudoku-panel{
+  height: $percent;
+}
+body{
+  background: $bgcolor;
+  font-family: "Microsoft YaHei";
+
+  &,& *{
+    box-sizing: border-box;
+  }
+}
+
+/** init -- choose a level **/
+#cover{
+  background: $bgcolor;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: $percent;
+  text-align: center;
+
+  h2{
+    color: $color3;
+    font-size: 32px;
+    margin: 60px 0;
+
+    span,i.fa-gamepad{
+      display: block;
+    }
+    i.fa-gamepad{
+      color: #089800;
+      font-size: 120px;
+    }
+  }
+  button{
+    background: rgba(0, 99, 212, 0.8);
+    box-shadow: 0px 0px 5px 1px #b1b1b1;
+    border-radius: 5px;
+    color: $bgcolor;
+    font-size: 20px;
+    line-height: 36px;
+    margin: 0 20px;
+    padding: 5px 15px;
+
+    &:hover{
+      background: rgba(0, 76, 212,0.8);
+      box-shadow: 0px 0px 10px 0px #a9a9a9;
+      cursor: pointer;
+      transition: all .2s;
+    }
+  }
+
+  /* start game -- choose a level */
+  &.complete-init{
+    background: linear-gradient(to right,#3b3b3b, #272727);
+    box-shadow: 0px 0px 8px 2px #666;
+    display: -webkit-flex; /* Safari */
+    display: flex!important;
+    height: 80px;
+    line-height: 80px;
+
+    h2,.btn-wrap{
+      flex: 1 1 auto;
+    }
+    h2{
+      color: #ddd;
+      margin: 0;
+
+      span,i{
+        display: inline;
+      }
+      i.fa-gamepad{
+        font-size: 36px;
+        margin-right: 10px;
+      }
+    }
+    .btn-wrap{
+      button{
+        box-shadow: 0px 0px 5px 1px #000000;
+        font-size: 18px;
+        padding: 2px 12px;
+        text-shadow: 0px 0px 3px #272727;
+      }
+    }
+  }
+}
+
+
+
+/* sudoku-game */
+#sudoku-game{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  height: $percent;
+
+  >div,>main{
+    flex: 1 1 auto;
+    padding:{
+      top: 120px;
+      bottom: 40px;
+    }
+    text-align: right;
+  }
+
+  /* function slide */
+  .left-slide{
+    padding-right: 20px;
+
+    #time-wrap{
+      font-size: 24px;
+      line-height: 40px;
+      margin-bottom: 30px;
+    }
+    .hint-wrap{
+
+    }
+    .restart-wrap{
+
+    }
+    button{
+      border: 1px solid #333;
+      font-size: 16px;
+      height: 36px;
+      margin-bottom: -1px;
+      min-width: 120px;
+    }
+  }
+
+  /* main */
+  .sudoku-wrap{
+    background: transparent;
+    flex-grow: 2;
+
+    .sudoku-panel{
+      background: #fff;
+      box-shadow: 0px 0px 5px #cacaca;
+    }
+  }
+
+  /* number slide */
+  .right-slide{
+
+  }
+}

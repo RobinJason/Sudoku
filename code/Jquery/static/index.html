@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div id="cover" class="complete-init" style="display: none">
+    <h2>
+      <i class="fa fa-gamepad"></i>
+      <span>Select the difficulty!</span>
+    </h2>
+    <div class="btn-wrap">
+      <button type="button">Easy</button>
+      <button type="button">Medium</button>
+      <button type="button">Hard</button>
+      <button type="button">Custom</button>
+    </div>
+  </div>
+  <div id="sudoku-game">
+    <div class="left-slide">
+      <div id="time-wrap">
+        <span>Time</span>
+        <time>00:00</time>
+      </div>
+      <div class="hint-wrap">
+        <button type="button" title="give me a hint">hint</button>
+      </div>
+      <div class="restart-wrap">
+        <button type="button" title="start a new game">restart</button>
+      </div>
+    </div>
+    <main class="sudoku-wrap">
+      <div class="sudoku-panel">
+
+      </div>
+    </main>
+    <div class="right-slide">
+
+    </div>
+  </div>
+</body>
+</html>
