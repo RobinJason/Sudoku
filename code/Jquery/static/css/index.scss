@@ -4,6 +4,44 @@ $C333: #333;
 $percent: 100%;
 $Cfff: #fff;
 
+// animate
+@mixin keyframes($name,$obj) {
+  @-webkit-keyframes #{$name} {
+    @each $i,$val in $obj {
+      #{$i} {
+        @each $v1,$val2 in $val {
+          #{$v1}:$val2;
+        }
+      }
+    }
+  }
+  @-moz-keyframes #{$name} {
+    @each $i,$val in $obj {
+      #{$i} {
+        @each $v1,$val2 in $val {
+          #{$v1}:$val2;
+        }
+      }
+    }
+  }
+  @keyframes #{$name} {
+    @each $i,$val in $obj {
+      #{$i} {
+        @each $v1,$val2 in $val {
+          #{$v1}:$val2;
+        }
+      }
+    }
+  }
+}
+@mixin animation($val) {
+  animation: $val;
+  -webkit-animation: $val;
+  -moz-animation: $val;
+  -ms-animation: $val;
+}
+
+
 /* global */
 html,body,
 #cover,#sudoku-game,
@@ -141,10 +179,103 @@ body{
     }
     button{
       border: 1px solid #d2d2d2;
-      font-size: 16px;
-      height: 36px;
+      cursor: pointer;
+      font-size: 18px;
+      height: 40px;
       margin-bottom: -1px;
       min-width: 120px;
+      position: relative;
+      i{
+        color: #333;
+        font-size: 28px;
+        margin-right: 15px;
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+      }
+      &:hover{
+        color: $Cfff;
+        /*transition: all .8s;*/
+        i{
+          opacity: 1;
+          visibility: visible;
+          text-shadow: 0px 0px 1px #a1a1a1;
+          transition: all .8s;
+        }
+      }
+    }
+    .new-wrap button{
+      i{
+        left: -20px;
+      }
+      &:hover{
+        background: #438f00;
+        i{
+          color: #438f00;
+        }
+      }
+    }
+    .hint-wrap button{
+      i{
+        left: -34px;
+      }
+      &:hover{
+        background: #ff8c00;
+        i{
+          color: #ff9e00;
+          $turn0: (color: #ffe400, left: -40px, transform: rotate(-20deg),text-shadow: 0px 0px 28px #ffcb00);
+          $turn25: (color: #ffd400, left: -28px, transform: rotate(20deg), text-shadow: 0px 0px 18px #ffe330);
+          $turn50: (color: #ffc200, left: -38px, transform: rotate(-10deg), text-shadow: 0px 0px 10px #fff275);
+          $turn75: (color: #ffb000, left: -30px, transform: rotate(10deg), text-shadow: 0px 0px 4px #fbffde);
+          $turn100: (color: #ffa200, left: -34px, text-shadow: 0px 0px 8px #ffffff);
+          $turn: ( 0%: $turn0, 25%: $turn25, 50%: $turn50, 75%: $turn75, 100%: $turn100 );
+          @include keyframes(turn,$turn);
+          @include animation(turn .8s);
+        }
+      }
+    }
+    .erase-wrap button{
+      i{
+        left: -40px;
+        transform: rotate(10deg);
+      }
+      &:hover{
+        background: #bb0029;
+        i{
+          color: #bb4a00;
+          font-size: 22px;
+          $clean0: (color: #bb000a, left: -48px, transform: rotate(10deg), font-size: 26px);
+          $clean25: (color: #bb0100, left: -32px, transform: rotate(-5deg), font-size: 27px);
+          $clean50: (color: #bb0f00, left: -46px, transform: rotate(10deg), font-size: 24px);
+          $clean75: (color: #bb2800, left: -34px, transform: rotate(-5deg), font-size: 25px);
+          $clean100: (color: #bb3b00, left: -42px, transform: rotate(10deg), font-size: 23px);
+          $clean: ( 0%: $clean0, 25%: $clean25, 50%: $clean50, 75%: $clean75, 100%: $clean100 );
+          @include keyframes(clean,$clean);
+          @include animation(clean .8s);
+          transform: rotate(10deg);
+        }
+      }
+    }
+    .restart-wrap button{
+      i{
+        left: -40px;
+      }
+      &:hover{
+        background: #006dff;
+        i{
+          color: #006dff;
+          font-size: 22px;
+          $refresh0: (color: #00e7ff, left: -120px, transform: rotate(144deg), font-size: 27px);
+          $refresh25: (color: #00acff, left: -98px, transform: rotate(288deg), font-size: 26px);
+          $refresh50: (color: #0097ff, left: -76px, transform: rotate(432deg), font-size: 25px);
+          $refresh75: (color: #0088ff, left: -54px, transform: rotate(576deg), font-size: 24px);
+          $refresh100: (color: #006dff, left: -44px, transform: rotate(720deg), font-size: 23px);
+          $refresh: ( 0%: $refresh0, 25%: $refresh25, 50%: $refresh50, 75%: $refresh75, 100%: $refresh100 );
+          @include keyframes(refresh,$refresh);
+          @include animation(refresh .8s);
+          transform: rotate(720deg);
+        }
+      }
     }
   }
 
