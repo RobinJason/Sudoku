@@ -1,7 +1,8 @@
 // variable
 $bgcolor: #efefef;
-$color3: #333;
+$C333: #333;
 $percent: 100%;
+$Cfff: #fff;
 
 /* global */
 html,body,
@@ -29,9 +30,9 @@ body{
   bottom: 0;
   width: $percent;
   text-align: center;
-
+  z-index: 99;
   h2{
-    color: $color3;
+    color: $C333;
     font-size: 32px;
     margin: 60px 0;
 
@@ -44,7 +45,7 @@ body{
     }
   }
   button{
-    background: rgba(0, 99, 212, 0.8);
+    background: rgba(29,80,162,1);
     box-shadow: 0px 0px 5px 1px #b1b1b1;
     border-radius: 5px;
     color: $bgcolor;
@@ -63,8 +64,8 @@ body{
 
   /* start game -- choose a level */
   &.complete-init{
-    background: linear-gradient(to right,#3b3b3b, #272727);
-    box-shadow: 0px 0px 8px 2px #666;
+    background: #4284da;
+    box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.2);
     display: -webkit-flex; /* Safari */
     display: flex!important;
     height: 80px;
@@ -81,16 +82,24 @@ body{
         display: inline;
       }
       i.fa-gamepad{
+        color: #fff;
         font-size: 36px;
         margin-right: 10px;
       }
     }
     .btn-wrap{
       button{
-        box-shadow: 0px 0px 5px 1px #000000;
+        background: #efefef;
+        box-shadow: 0 0 10px rgba(29,80,162,0.5);
+        color: #004bad;
         font-size: 18px;
         padding: 2px 12px;
-        text-shadow: 0px 0px 3px #272727;
+        text-shadow: 0px 0px transparent;
+        &:hover{
+          background: #cecece;
+          box-shadow: 0 0 10px rgba(29,80,162,0.9);
+          transition: all 0.5s;
+        }
       }
     }
   }
@@ -122,14 +131,16 @@ body{
       line-height: 40px;
       margin-bottom: 30px;
     }
-    .hint-wrap{
-
+    .new-wrap button,
+    .erase-wrap button{
+      background: $Cfff;
     }
-    .restart-wrap{
-
+    .hint-wrap button,
+    .restart-wrap button{
+      background: #fafafa;
     }
     button{
-      border: 1px solid #333;
+      border: 1px solid #d2d2d2;
       font-size: 16px;
       height: 36px;
       margin-bottom: -1px;
@@ -145,6 +156,70 @@ body{
     .sudoku-panel{
       background: #fff;
       box-shadow: 0px 0px 5px #cacaca;
+      overflow: hidden;
+      .sudoku-box{
+        border: 1px solid #ddd;
+        height: 90%;
+        margin: 5%;
+        position: relative;
+        width: 90%;
+        .num-box{
+          background: #fbfbfb;
+          box-sizing: border-box;
+          border: 1px solid #e9e9e9;
+          font-size: 30px;
+          height: 10%;
+          position: absolute;
+          /*text-shadow: 0px 0px 5px #9c9c9c;*/
+          text-align: center;
+          width: 10%;
+          span{
+            border-radius: 5px;
+            color: #333;
+            /*display: none;*/
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            &:after{
+              content: "";
+              display: inline-block;
+              height: 100%;
+              overflow: hidden;
+              vertical-align: middle;
+              width: 0;
+            }
+          }
+        }
+        .box-1 span{
+          background: #7dbf92;
+        }
+        .box-2 span{
+          background: #64a098;
+        }
+        .box-3 span{
+          background: #7dbf92;
+        }
+
+        .box-4 span{
+          background: #64a098;
+        }
+        .box-5 span{
+          background: #7dbf92;
+        }
+        .box-6 span{
+          background: #64a098;
+        }
+
+        .box-7 span{
+          background: #7dbf92;
+        }
+        .box-8 span{
+          background: #64a098;
+        }
+        .box-9 span{
+          background: #7dbf92;
+        }
+      }
     }
   }
 

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/index.css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/index.js"></script>
 </head>
 <body>
   <div id="cover" class="complete-init" style="display: none">
@@ -27,16 +28,112 @@
         <span>Time</span>
         <time>00:00</time>
       </div>
+      <div class="new-wrap">
+        <button type="button" title="Start a new game">New Game</button>
+      </div>
       <div class="hint-wrap">
-        <button type="button" title="give me a hint">hint</button>
+        <button type="button" title="Give me a hint">Hint</button>
+      </div>
+      <div class="erase-wrap">
+        <button type="button" title="Clean a number">Erase</button>
       </div>
       <div class="restart-wrap">
-        <button type="button" title="start a new game">restart</button>
+        <button type="button" title="Restart the current game">Restart</button>
       </div>
     </div>
     <main class="sudoku-wrap">
       <div class="sudoku-panel">
+        <div class="sudoku-box">
+          <!--<div class="num-box first-box" style="top: 1%;left: 1%;"><span>1</span></div>
+          <div class="num-box first-box" style="top: 1%;left: 11%;"><span>1</span></div>
+          <div class="num-box first-box" style="top: 1%;left: 21%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 1%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 1%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 1%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 1%;left: 69%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 1%;left: 79%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 1%;left: 89%;"><span>1</span></div>
 
+          <div class="num-box first-box" style="top: 11%;left: 1%;"><span>1</span></div>
+          <div class="num-box first-box" style="top: 11%;left: 11%;"><span>1</span></div>
+          <div class="num-box first-box" style="top: 11%;left: 21%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 11%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 11%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 11%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 11%;left: 69%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 11%;left: 79%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 11%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box first-box" style="top: 21%;left: 1%;"><span>1</span></div>
+          <div class="num-box first-box" style="top: 21%;left: 11%;"><span>1</span></div>
+          <div class="num-box first-box" style="top: 21%;left: 21%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 21%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 21%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box second-box" style="top: 21%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 21%;left: 69%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 21%;left: 79%;"><span>1</span></div>
+          <div class="num-box third-box" style="top: 21%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box fouth-box" style="top: 35.5%;left: 1%;"><span>1</span></div>
+          <div class="num-box fouth-box" style="top: 35.5%;left: 11%;"><span>1</span></div>
+          <div class="num-box fouth-box" style="top: 35.5%;left: 21%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 35.5%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 35.5%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 35.5%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 35.5%;left: 69%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 35.5%;left: 79%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 35.5%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box fouth-box" style="top: 45.5%;left: 1%;"><span>1</span></div>
+          <div class="num-box fouth-box" style="top: 45.5%;left: 11%;"><span>1</span></div>
+          <div class="num-box fouth-box" style="top: 45.5%;left: 21%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 45.5%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 45.5%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 45.5%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 45.5%;left: 69%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 45.5%;left: 79%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 45.5%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box fouth-box" style="top: 55.5%;left: 1%;"><span>1</span></div>
+          <div class="num-box fouth-box" style="top: 55.5%;left: 11%;"><span>1</span></div>
+          <div class="num-box fouth-box" style="top: 55.5%;left: 21%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 55.5%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 55.5%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box fifth-box" style="top: 55.5%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 55.5%;left: 69%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 55.5%;left: 79%;"><span>1</span></div>
+          <div class="num-box sixth-box" style="top: 55.5%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box seventh-box" style="top: 69%;left: 1%;"><span>1</span></div>
+          <div class="num-box seventh-box" style="top: 69%;left: 11%;"><span>1</span></div>
+          <div class="num-box seventh-box" style="top: 69%;left: 21%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 69%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 69%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 69%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 69%;left: 69%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 69%;left: 79%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 69%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box seventh-box" style="top: 79%;left: 1%;"><span>1</span></div>
+          <div class="num-box seventh-box" style="top: 79%;left: 11%;"><span>1</span></div>
+          <div class="num-box seventh-box" style="top: 79%;left: 21%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 79%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 79%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 79%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 79%;left: 69%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 79%;left: 79%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 79%;left: 89%;"><span>1</span></div>
+
+          <div class="num-box seventh-box" style="top: 89%;left: 1%;"><span>1</span></div>
+          <div class="num-box seventh-box" style="top: 89%;left: 11%;"><span>1</span></div>
+          <div class="num-box seventh-box" style="top: 89%;left: 21%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 89%;left: 35.5%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 89%;left: 45.5%;"><span>1</span></div>
+          <div class="num-box eighth-box" style="top: 89%;left: 55.5%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 89%;left: 69%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 89%;left: 79%;"><span>1</span></div>
+          <div class="num-box nineth-box" style="top: 89%;left: 89%;"><span>1</span></div>-->
+        </div>
       </div>
     </main>
     <div class="right-slide">

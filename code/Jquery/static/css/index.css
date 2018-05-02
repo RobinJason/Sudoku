@@ -5,26 +5,42 @@ body { background: #efefef; font-family: "Microsoft YaHei"; }
 body, body * { box-sizing: border-box; }
 
 /** init -- choose a level **/
-#cover { background: #efefef; position: fixed; top: 0; right: 0; left: 0; bottom: 0; width: 100%; text-align: center; /* start game -- choose a level */ }
+#cover { background: #efefef; position: fixed; top: 0; right: 0; left: 0; bottom: 0; width: 100%; text-align: center; z-index: 99; /* start game -- choose a level */ }
 #cover h2 { color: #333; font-size: 32px; margin: 60px 0; }
 #cover h2 span, #cover h2 i.fa-gamepad { display: block; }
 #cover h2 i.fa-gamepad { color: #089800; font-size: 120px; }
-#cover button { background: rgba(0, 99, 212, 0.8); box-shadow: 0px 0px 5px 1px #b1b1b1; border-radius: 5px; color: #efefef; font-size: 20px; line-height: 36px; margin: 0 20px; padding: 5px 15px; }
+#cover button { background: #1d50a2; box-shadow: 0px 0px 5px 1px #b1b1b1; border-radius: 5px; color: #efefef; font-size: 20px; line-height: 36px; margin: 0 20px; padding: 5px 15px; }
 #cover button:hover { background: rgba(0, 76, 212, 0.8); box-shadow: 0px 0px 10px 0px #a9a9a9; cursor: pointer; transition: all .2s; }
-#cover.complete-init { background: linear-gradient(to right, #3b3b3b, #272727); box-shadow: 0px 0px 8px 2px #666; display: -webkit-flex; /* Safari */ display: flex !important; height: 80px; line-height: 80px; }
+#cover.complete-init { background: #4284da; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); display: -webkit-flex; /* Safari */ display: flex !important; height: 80px; line-height: 80px; }
 #cover.complete-init h2, #cover.complete-init .btn-wrap { flex: 1 1 auto; }
 #cover.complete-init h2 { color: #ddd; margin: 0; }
 #cover.complete-init h2 span, #cover.complete-init h2 i { display: inline; }
-#cover.complete-init h2 i.fa-gamepad { font-size: 36px; margin-right: 10px; }
-#cover.complete-init .btn-wrap button { box-shadow: 0px 0px 5px 1px #000000; font-size: 18px; padding: 2px 12px; text-shadow: 0px 0px 3px #272727; }
+#cover.complete-init h2 i.fa-gamepad { color: #fff; font-size: 36px; margin-right: 10px; }
+#cover.complete-init .btn-wrap button { background: #efefef; box-shadow: 0 0 10px rgba(29, 80, 162, 0.5); color: #004bad; font-size: 18px; padding: 2px 12px; text-shadow: 0px 0px transparent; }
+#cover.complete-init .btn-wrap button:hover { background: #cecece; box-shadow: 0 0 10px rgba(29, 80, 162, 0.9); transition: all 0.5s; }
 
 /* sudoku-game */
 #sudoku-game { display: -webkit-flex; /* Safari */ display: flex; height: 100%; /* function slide */ /* main */ /* number slide */ }
 #sudoku-game > div, #sudoku-game > main { flex: 1 1 auto; padding-top: 120px; padding-bottom: 40px; text-align: right; }
 #sudoku-game .left-slide { padding-right: 20px; }
 #sudoku-game .left-slide #time-wrap { font-size: 24px; line-height: 40px; margin-bottom: 30px; }
-#sudoku-game .left-slide button { border: 1px solid #333; font-size: 16px; height: 36px; margin-bottom: -1px; min-width: 120px; }
+#sudoku-game .left-slide .new-wrap button, #sudoku-game .left-slide .erase-wrap button { background: #fff; }
+#sudoku-game .left-slide .hint-wrap button, #sudoku-game .left-slide .restart-wrap button { background: #fafafa; }
+#sudoku-game .left-slide button { border: 1px solid #d2d2d2; font-size: 16px; height: 36px; margin-bottom: -1px; min-width: 120px; }
 #sudoku-game .sudoku-wrap { background: transparent; flex-grow: 2; }
-#sudoku-game .sudoku-wrap .sudoku-panel { background: #fff; box-shadow: 0px 0px 5px #cacaca; }
+#sudoku-game .sudoku-wrap .sudoku-panel { background: #fff; box-shadow: 0px 0px 5px #cacaca; overflow: hidden; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box { border: 1px solid #ddd; height: 90%; margin: 5%; position: relative; width: 90%; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .num-box { background: #fbfbfb; box-sizing: border-box; border: 1px solid #e9e9e9; font-size: 30px; height: 10%; position: absolute; /*text-shadow: 0px 0px 5px #9c9c9c;*/ text-align: center; width: 10%; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .num-box span { border-radius: 5px; color: #333; /*display: none;*/ display: inline-block; height: 100%; width: 100%; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .num-box span:after { content: ""; display: inline-block; height: 100%; overflow: hidden; vertical-align: middle; width: 0; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-1 span { background: #7dbf92; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-2 span { background: #64a098; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-3 span { background: #7dbf92; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-4 span { background: #64a098; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-5 span { background: #7dbf92; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-6 span { background: #64a098; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-7 span { background: #7dbf92; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-8 span { background: #64a098; }
+#sudoku-game .sudoku-wrap .sudoku-panel .sudoku-box .box-9 span { background: #7dbf92; }
 
 /*# sourceMappingURL=index.css.map */
